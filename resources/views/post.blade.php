@@ -1,16 +1,14 @@
-@extends('components.layout')
+<x-layout>
+        <article>
+            <h1>
+                {{ $post->title }}
+            </h1>
 
-@section('content')
-    <article>
-        <h1>
-            {{ $post->title }}
-        </h1>
+            <div>
+                {!! $post->body !!}
+            </div>
 
-        <div>
-            {!! $post->body !!}
-        </div>
+        </article>
 
-    </article>
-
-    <a href="/">Go Back</a>
-@endsection
+        <a href="/">Go Back</a>
+</x-layout>

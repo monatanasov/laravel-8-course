@@ -11,6 +11,8 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = ['category', 'author']; //give me a post with these default relationships
+
     public function category()
     {
         return $this->belongsTo(Category::class);

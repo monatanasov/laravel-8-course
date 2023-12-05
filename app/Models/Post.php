@@ -13,6 +13,14 @@ class Post extends Model
 
     protected $with = ['category', 'author']; //give me a post with these default relationships
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' .request('search') . '%');
+            $query->orWhere('body', 'like', '%' .request('search') . '%');
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

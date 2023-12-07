@@ -9,8 +9,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-
     protected $with = ['category', 'author']; //give me a post with these default relationships
 
     public function scopeFilter($query, array $filters)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
@@ -24,6 +25,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post}', [PostController::class, 'show']);
+Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('posts.index', [
